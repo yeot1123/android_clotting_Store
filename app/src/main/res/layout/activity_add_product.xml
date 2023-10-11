@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".AddProductActivity">
+
+    <EditText
+            android:id="@+id/etProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ชื่อสินค้า"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"/>
+
+    <EditText
+            android:id="@+id/etProductPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ราคา"
+            android:inputType="numberDecimal"
+            android:layout_marginBottom="16dp"/>
+
+    <EditText
+            android:id="@+id/etProductDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="รายละเอียด"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="16dp"/>
+    <Button
+            android:id="@+id/btnAddProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="เพิ่มสินค้า"/>
+
+    <ImageView
+            android:id="@+id/ivProductImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="16dp"/>
+
+    <EditText
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Add Url Here"
+            android:ems="10"
+            android:id="@+id/etProductUrl"/>
+    <Button
+            android:id="@+id/btnLoadImageFromUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Load Image from URL"/>
+
+
+</LinearLayout>
