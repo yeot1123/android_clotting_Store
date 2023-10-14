@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
             // ตรวจสอบการล็อกอิน
             if (isValidCredentials(username, password)) {
                 // ถ้าล็อกอินสำเร็จ ให้ไปยังหน้าหลัก
-                val intent = Intent(this, ProductListActivity::class.java)
+                val intent = Intent(this, ProductListActivityUser::class.java)
                 startActivity(intent)
             } else if (username == "admin" && password == "123") {
                 // ถ้าล็อกอินไม่สำเร็จ ให้แจ้งเตือน

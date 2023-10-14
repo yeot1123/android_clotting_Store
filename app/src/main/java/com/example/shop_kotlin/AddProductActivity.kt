@@ -2,6 +2,7 @@ package com.example.shop_kotlin
 
 
 import DatabaseHelperProduct
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -34,6 +35,7 @@ class AddProductActivity : AppCompatActivity() {
         etProductUrl = findViewById(R.id.etProductUrl)
         ivProductImage = findViewById(R.id.ivProductImage)
 
+
         val btnAddProduct: Button = findViewById(R.id.btnAddProduct)
         btnAddProduct.setOnClickListener {
             // เมื่อคลิกที่ปุ่ม "เพิ่มสินค้า"
@@ -47,8 +49,13 @@ class AddProductActivity : AppCompatActivity() {
             dbHelper.addProduct(product) // เรียกใช้ฟังก์ชันเพิ่มสินค้า
 
             // หลังจากบันทึกข้อมูลสินค้าเสร็จสิ้น คุณสามารถปิด Activity นี้
-
         }
+        val btnedit: Button = findViewById(R.id.btnedit)
+        btnedit.setOnClickListener{
+            val intent = Intent(this, ProductListActivity::class.java)
+            startActivity(intent)
+        }
+
         val btnLoadImageFromUrl = findViewById<Button>(R.id.btnLoadImageFromUrl)
         btnLoadImageFromUrl.setOnClickListener {
             // อ่าน URL จาก EditText
