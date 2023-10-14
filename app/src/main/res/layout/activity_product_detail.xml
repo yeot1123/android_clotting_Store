@@ -1,57 +1,102 @@
-<!-- res/layout/activity_product_detail.xml -->
-<LinearLayout
+<!-- activity_confirmation.xml -->
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
-        tools:context=".ProductDetailActivity">
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
             android:id="@+id/productImageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
+            android:layout_width="249dp"
+            android:layout_height="207dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"
-            app:layout_constraintBottom_toTopOf="@id/productNameTextView"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="Product Image"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="W,2:1" android:layout_marginTop="100dp"/>
     <TextView
             android:id="@+id/productNameTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="Product Name"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:layout_gravity="center" />
+            app:layout_constraintTop_toBottomOf="@id/productImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="20dp" android:textColor="#000000"/>
 
     <TextView
             android:id="@+id/productPriceTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="Price: $0.00"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="italic"
-            android:gravity="center"
-            android:layout_gravity="center" />
+            app:layout_constraintTop_toBottomOf="@id/productNameTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
             android:id="@+id/productDescriptionTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="Product Description"
-            android:textSize="16sp"
-            android:gravity="start"
-            android:layout_gravity="center" />
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/productPriceTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- สามารถเพิ่มข้อมูลเพิ่มเติมตามที่คุณต้องการ -->
+    <LinearLayout
+            android:id="@+id/quantityLayout"
+            android:layout_width="181dp"
+            android:layout_height="49dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/productDescriptionTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="20dp">
 
-</LinearLayout>
+        <Button
+                android:id="@+id/decreaseButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="-"
+                android:textSize="18sp"/>
+
+        <TextView
+                android:id="@+id/quantityTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"
+                android:textSize="16sp"
+                android:textAlignment="center"/>
+
+        <Button
+                android:id="@+id/increaseButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="+"
+                android:textSize="18sp"/>
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/totalPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: $0.00"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/quantityLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="15dp" android:textColorHint="#000000"
+            android:textColor="#000000"/>
+    <TextView
+            android:text="OderDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp" android:textStyle="bold" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:textSize="30sp" android:textColor="#000000"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
