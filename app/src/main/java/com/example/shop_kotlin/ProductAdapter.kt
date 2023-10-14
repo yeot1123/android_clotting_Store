@@ -5,13 +5,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.squareup.picasso.Picasso
 
-class ProductAdapter(private val context: Context, private val productList: List<Product>) : BaseAdapter() {
+class ProductAdapter(private val context: Context, private var productList: List<Product>, private val deleteListener: ProductDeleteListener) : BaseAdapter() {
 
     override fun getCount(): Int {
         return productList.size
@@ -33,7 +30,7 @@ class ProductAdapter(private val context: Context, private val productList: List
         val productNameTextView = view.findViewById<TextView>(R.id.productNameTextView)
         val productPriceTextView = view.findViewById<TextView>(R.id.productPriceTextView)
         val productDescriptionTextView = view.findViewById<TextView>(R.id.productDescriptionTextView)
-
+        val btnDelete = view.findViewById<Button>(R.id.btnDelete)
         val product = productList[position]
 
         // นำข้อมูลมาแสดงผลใน View
@@ -46,8 +43,25 @@ class ProductAdapter(private val context: Context, private val productList: List
         Picasso.get().load(product.imagePath).into(productImageView)
 
 
+        btnDelete.setOnClickListener {
+            // เรียกฟังก์ชันลบสินค้าที่ต้องการ
+            deleteListener.onDeleteProduct(product)
+            // คำสั่งนี้ควรถูกนำไปใช้ใน ProductListActivity
+        }
+
         return view
 
     }
+    interface ProductDeleteListener {
+        fun onDeleteProduct(product: Product)
+
+    }
+    fun updateProductList(updatedList: List<Product>) {
+        productList = updatedList
+        notifyDataSetChanged()
+    }
+
+
+
 }
 

@@ -49,7 +49,7 @@ class DatabaseHelperProduct(context: Context) : SQLiteOpenHelper(context, DATABA
                 val productDescription = cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION))
                 val productImageUrl = cursor.getString(cursor.getColumnIndex(COLUMN_IMAGE_PATH))
 
-                val product = Product(productName, productPrice, productDescription, productImageUrl)
+                val product = Product(productId,productName, productPrice, productDescription, productImageUrl)
                 productList.add(product)
             } while (cursor.moveToNext())
         }
@@ -71,6 +71,13 @@ class DatabaseHelperProduct(context: Context) : SQLiteOpenHelper(context, DATABA
         db.insert(TABLE_PRODUCTS, null, values)
         db.close()
     }
+
+    fun deleteProduct(product: Long) {
+        val db = this.writableDatabase
+        db.delete(TABLE_PRODUCTS, "$COLUMN_ID=?", arrayOf(product.toString()))
+        db.close()
+    }
+
 
 
 }

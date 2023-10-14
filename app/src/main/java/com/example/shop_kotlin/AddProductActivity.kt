@@ -42,7 +42,7 @@ class AddProductActivity : AppCompatActivity() {
             val productDescription = etProductDescription.text.toString()
             val productUrl = etProductUrl.text.toString()
 
-            val product = Product(productName, productPrice, productDescription, productUrl)
+            val product = Product(0,productName, productPrice, productDescription, productUrl)
 
             dbHelper.addProduct(product) // เรียกใช้ฟังก์ชันเพิ่มสินค้า
 

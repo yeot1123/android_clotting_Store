@@ -1,6 +1,7 @@
 package com.example.shop_kotlin
 
 data class Product(
+    val id: Long,
     val name: String,
     val price: Double,
     val description: String,
